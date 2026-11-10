@@ -1,0 +1,3 @@
+import {describe,expect,it} from "vitest";
+function buildSystemInstruction(agentName:string,instructions:string){return `You are ${agentName}. Follow these agent instructions: ${instructions||"Be helpful, accurate, and clear."}.`;}
+describe("agent instruction builder",()=>{it("includes configured agent name and instructions",()=>{expect(buildSystemInstruction("Researcher","Cite reliable sources")).toContain("You are Researcher. Follow these agent instructions: Cite reliable sources.");});it("provides a safe default for empty instructions",()=>{expect(buildSystemInstruction("Helper","")).toContain("Be helpful, accurate, and clear.");});});
